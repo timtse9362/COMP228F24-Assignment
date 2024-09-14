@@ -21,7 +21,5 @@ public class Main {
         //To display the values of singer1 after updating the values using setters
         System.out.println("Updated values of the singer1 object: ");
         singer1.displaySingerInfo();
-
-        System.out.println("Hello World");
     }
 }
