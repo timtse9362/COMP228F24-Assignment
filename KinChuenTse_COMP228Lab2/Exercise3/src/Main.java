@@ -42,7 +42,7 @@ public class Main {
         int maxOfFour = findMax(7, 14, 3, 9);
         System.out.println("Maximum of 7, 14, 3, and 9: " + maxOfFour);
 
-        // Find maximum in an array of doubles
+        // Find maximum in an array of double values
         double[] values = {2.5, 3.7, 1.8, 4.2, 3.9};
         double maxInArray = findMax(values);
         System.out.println("Maximum value in the array: " + maxInArray);

@@ -7,7 +7,7 @@ public class Main {
         Lotto lottoGame = new Lotto();
         String input = JOptionPane.showInputDialog("Choose a number between 3 and 27:");
 
-        // Check if the user clicked "Cancel"
+        // Check if the user clicked "Cancel" button
         if (input == null) {
             JOptionPane.showMessageDialog(null, "Game canceled.");
             return;
@@ -29,6 +29,7 @@ public class Main {
         int attempts = 0;
         boolean hasWon = false;
 
+        // Run the loop 5 times to generate lotto number 5 times
         while (attempts < 5) {
             lottoGame = new Lotto(); // Create a new Lotto object for each attempt
             int sum = lottoGame.calculateSum();
@@ -42,6 +43,7 @@ public class Main {
 
             JOptionPane.showMessageDialog(null, message);
 
+            // If the sum is equal to the user entered value, the user wins and the game ends
             if (sum == userChoice) {
                 hasWon = true;
                 break;
