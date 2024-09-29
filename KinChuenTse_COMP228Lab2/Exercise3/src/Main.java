@@ -2,22 +2,22 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-    // Method to find the maximum of two integers
+    // Function to find the maximum of two integers
     public static int findMax(int a, int b) {
         return (a > b) ? a : b;
     }
 
-    // Method to find the maximum of three integers
+    // Function to find the maximum of three integers
     public static int findMax(int a, int b, int c) {
         return findMax(findMax(a, b), c);
     }
 
-    // Method to find the maximum of four integers
+    // Function to find the maximum of four integers
     public static int findMax(int a, int b, int c, int d) {
         return findMax(findMax(a, b, c), d);
     }
 
-    // Method to find the maximum value in an array of doubles
+    // Function to find the maximum value in an array of doubles
     public static double findMax(double[] numbers) {
         double max = numbers[0];
         for (double num : numbers) {
@@ -28,7 +28,7 @@ public class Main {
         return max;
     }
 
-    // Main method to call the overloaded methods and display results
+    // Main function to call the overloaded methods and display results
     public static void main(String[] args) {
         // Find maximum of two integers
         int maxOfTwo = findMax(10, 20);

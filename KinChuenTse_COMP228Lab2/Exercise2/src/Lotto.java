@@ -5,7 +5,7 @@ public class Lotto {
     private int[] numbers; // Array to hold three random integer values
     private Random random;
 
-    // Constructor that populates the array with random integers from 1 to 9
+    // Constructor that initializes the array with random integers from 1 to 9
     public Lotto() {
         random = new Random();
         numbers = new int[3];
@@ -14,12 +14,12 @@ public class Lotto {
         }
     }
 
-    // Method to return the array of numbers
+    // Function to return the array of numbers
     public int[] getNumbers() {
         return numbers;
     }
 
-    // Method to calculate the sum of the numbers
+    // Function to calculate the sum of the numbers
     public int calculateSum() {
         int sum = 0;
         for (int num : numbers) {

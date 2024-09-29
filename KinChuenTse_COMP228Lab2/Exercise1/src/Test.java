@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.util.Random;
 
 public class Test {
+
+    // String array to store the 5 questions
     private String[] questionsArray = {
             "What is the keyword used to define a class in Java?",
             "Which of the following is a valid identifier in Java?",
@@ -10,6 +12,7 @@ public class Test {
             "What is the scope of a variable declared inside a method?"
     };
 
+    // String array to store the answers
     private String[][] optionsArray = {
             {"class", "object", "module", "function"},
             {"myVariable", "2ndVariable", "my-variable", "my variable"},
@@ -18,13 +21,14 @@ public class Test {
             {"Only within the method", "Within the class", "Within the package", "Globally"}
     };
 
+    // Int array to store the correct answers
     private int[] answers = {0, 0, 0, 3, 0}; // Correct answer indices
 
     private int correctAnswers = 0;
     private int incorrectAnswers = 0;
     private Random randomObject = new Random();
 
-    // Method to interact with the user
+    // Function to ask the user to input the answer
     public void inputAnswer() {
         for (int i = 0; i < questionsArray.length; i++) {
             simulateQuestion(i);
@@ -32,7 +36,7 @@ public class Test {
         displayResults();
     }
 
-    // Method to simulate each question
+    // Function to show the questions
     private void simulateQuestion(int index) {
         String question = questionsArray[index];
         String[] opts = optionsArray[index];
@@ -48,7 +52,7 @@ public class Test {
         checkAnswer(index, response);
     }
 
-    // Method to check the answer
+    // Function to check the answer if it is correct
     private void checkAnswer(int index, String response) {
         String randomMessage;
         try {
@@ -70,7 +74,7 @@ public class Test {
         }
     }
 
-    // Method to display a random congratulatory message
+    // Function to display a random congratulatory or wrong message
     private String generateMessage(boolean isCorrect) {
         String message;
         if(isCorrect) {
@@ -88,7 +92,7 @@ public class Test {
                     message = "Very good. Nice work!";
                     break;
                 default:
-                    message = ""; // Should never reach here
+                    message = "";
             }
         }
         else{
@@ -106,13 +110,13 @@ public class Test {
                     message = "No. Keep trying again";
                     break;
                 default:
-                    message = ""; // Should never reach here
+                    message = "";
             }
         }
         return message;
     }
 
-    // Method to display results at the end of the test
+    // Function to display results at the end of the test
     private void displayResults() {
         int totalQuestions = questionsArray.length;
         double percentage = (double) correctAnswers / totalQuestions * 100;
