@@ -4,7 +4,7 @@ import javax.swing.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Lotto lottoGame = new Lotto();
+        Lotto lottoGame; // Create a new Lotto object for each attempt
         String input = JOptionPane.showInputDialog("Choose a number between 3 and 27:");
 
         // Check if the user clicked "Cancel" button

@@ -30,7 +30,7 @@ public class Test {
 
     // Function to ask the user to input the answer
     public void inputAnswer() {
-        for (int i = 0; i < questionsArray.length; i++) {
+        for (int i = 0; i < 5; i++) {
             simulateQuestion(i);
         }
         displayResults();
