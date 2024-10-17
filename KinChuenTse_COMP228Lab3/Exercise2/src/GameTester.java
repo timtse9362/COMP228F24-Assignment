@@ -9,11 +9,4 @@ public abstract class GameTester {
 
     public abstract double calcSalary();
 
-    public String getGameTesterName() {
-        return gameTesterName;
-    }
-
-    public boolean getFullTime() {
-        return fullTime;
-    }
 }
