@@ -1,4 +1,5 @@
 public class Health extends Insurance{
+
     public Health(){
         this.insuranceType = "Health";
     }
