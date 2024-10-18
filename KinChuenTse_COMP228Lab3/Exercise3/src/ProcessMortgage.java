@@ -11,7 +11,7 @@ public class ProcessMortgage {
         String customerName;
         double mortgageAmount, mortgageRate;
 
-        System.out.print("Enter the current interest rate %: ");
+        System.out.print("Enter the current prime interest rate %: ");
         double currentInterestRate = scanner.nextDouble();
 
         for (int i = 0; i < mortgages.length; i++) {
@@ -28,16 +28,13 @@ public class ProcessMortgage {
             mortgageType = scanner.nextInt();
 
             if (mortgageType == 1) {
-                mortgages[i] = new BusinessMortgage(mortgageNumber, customerName, mortgageAmount, mortgageTerm);
+                mortgages[i] = new BusinessMortgage("Business", mortgageNumber, customerName, mortgageAmount, mortgageTerm, currentInterestRate + 1.0);
             } else if (mortgageType == 2) {
-                mortgages[i] = new PersonalMortgage(mortgageNumber, customerName, mortgageAmount, mortgageTerm);
-            } else {
-                System.out.println("Invalid mortgage type. Defaulting to Business Mortgage.");
-                mortgages[i] = new BusinessMortgage(mortgageNumber, customerName, mortgageAmount, mortgageTerm);
+                mortgages[i] = new PersonalMortgage("Personal", mortgageNumber, customerName, mortgageAmount, mortgageTerm, currentInterestRate + 2.0);
             }
         }
 
-        System.out.println("\n--- Mortgage Details ---");
+        System.out.println("\nMortgage Details: ");
         for (Mortgage mortgage : mortgages) {
             mortgage.getMortgageInfo();
             System.out.println();
