@@ -14,7 +14,8 @@ public class ProcessMortgage {
         System.out.print("Enter the current prime interest rate %: ");
         double currentInterestRate = scanner.nextDouble();
 
-        for (int i = 0; i < mortgages.length; i++) {
+        //For loop to run 3 times to ask the user for the mortgage information
+        for (int i = 0; i < 3; i++) {
             System.out.println("\nEnter details for Mortgage " + (i + 1) + ":");
             System.out.print("Enter mortgage number: ");
             mortgageNumber = scanner.nextInt();
@@ -34,6 +35,7 @@ public class ProcessMortgage {
             }
         }
 
+        //To show the 3 mortgage information
         System.out.println("\nMortgage Details: ");
         for (Mortgage mortgage : mortgages) {
             mortgage.getMortgageInfo();

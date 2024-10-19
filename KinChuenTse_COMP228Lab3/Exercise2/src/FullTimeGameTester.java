@@ -1,12 +1,12 @@
 public class FullTimeGameTester extends GameTester {
-    private static final double BASE_SALARY = 3000;
+    private double baseSalary = 3000; //Instance double variable to store the base salary value
 
-    public FullTimeGameTester(String name) {
+    public FullTimeGameTester(String name) { //Constructor
         super(name, true);
     }
 
     @Override
-    public double calcSalary() {
-        return BASE_SALARY;
+    public double calcSalary() { //Implement the calcSalary
+        return baseSalary;
     }
 }

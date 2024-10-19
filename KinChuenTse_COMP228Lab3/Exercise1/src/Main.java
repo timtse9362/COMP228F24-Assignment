@@ -10,6 +10,7 @@ public class Main {
         Insurance[] insuranceArray = new Insurance[3]; // Array to hold insurance objects
         int count = 0;
 
+        //For loop to run 3 times to ask user for the insurance information
         for (int i = 0; i < 3; i++) {
             System.out.print("Please enter the insurance type: ");
             String type = scanner.nextLine();
@@ -30,6 +31,8 @@ public class Main {
                 insuranceArray[i] = lifeInsurance;
             }
         }
+
+        //To display all the insurance information
         System.out.println("\nInsurance Information:");
         for (int i = 0; i < 3; i++) {
             insuranceArray[i].displayInfo();

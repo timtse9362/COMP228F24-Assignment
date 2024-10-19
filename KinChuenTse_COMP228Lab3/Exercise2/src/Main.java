@@ -9,6 +9,7 @@ public class Main {
         int choice;
         GameTester tester = null;
 
+        //To ask the user for the information
         System.out.println("Choose Game Tester Type:");
         System.out.print("1. Full-Time, 2. Part-Time ");
         choice = scanner.nextInt();
@@ -27,6 +28,7 @@ public class Main {
             tester = new PartTimeGameTester(name, hours);
         }
 
+        //To show the information
         System.out.println("Game Tester Name: " + tester.gameTesterName);
         System.out.println("Salary: $" + tester.calcSalary());
 
