@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.kinchuentse_comp228lab4.Lab4Controller">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <center>
+
+        <GridPane hgap="10" vgap="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25"/>
+                <ColumnConstraints percentWidth="25"/>
+                <ColumnConstraints percentWidth="25"/>
+                <ColumnConstraints percentWidth="25"/>
+            </columnConstraints>
+
+
+            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="nameTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="addressTextField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Province:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="provinceTextField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="City:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="cityTextField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Postal Code:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <TextField fx:id="postalCodeTextField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Phone Number:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <TextField fx:id="phoneTextField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <TextField fx:id="emailTextField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+            <CheckBox fx:id="studentCouncilCheckBox" text="Student Council" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <CheckBox fx:id="volunteerCheckBox" text="Volunteer Work" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+
+
+            <VBox spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.rowSpan="7" alignment="TOP_RIGHT">
+                <padding>
+                    <Insets left="20"/>
+                </padding>
+
+                <HBox spacing="20" alignment="TOP_RIGHT">
+                    <RadioButton fx:id="csRadio" text="Computer Science" selected="true" onAction="#addComboBoxCourse"/>
+                    <RadioButton fx:id="businessRadio" text="Business" onAction="#addComboBoxCourse"/>
+                </HBox>
+
+
+                <ComboBox fx:id="courseComboBox" prefWidth="200" prefHeight="50" onAction="#addCourse"/>
+                <ListView fx:id="courseListView" prefHeight="150"/>
+            </VBox>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <VBox spacing="10" alignment="CENTER">
+            <Button fx:id="displayButton" text="Display" onAction="#displayInfo"/>
+            <TextArea fx:id="displayArea" prefRowCount="3" editable="false"/>
+        </VBox>
+    </bottom>
+</BorderPane>
