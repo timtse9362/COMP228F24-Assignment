@@ -127,40 +127,40 @@ public class HelloController {
                     System.out.println("PlayerAndGame table created successfully.");
                 }
 
-                // Insert player data
+                // Insert player data using prepared statement
                 String insertPlayerSQL = "INSERT INTO Kin_Chuen_Tse_player (player_id, first_name, last_name, address, postal_code, province, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                try (PreparedStatement playerStmt = conn.prepareStatement(insertPlayerSQL)) {
-                    playerStmt.setString(1, playerId);
-                    playerStmt.setString(2, firstName);
-                    playerStmt.setString(3, lastName);
-                    playerStmt.setString(4, address);
-                    playerStmt.setString(5, postalCode);
-                    playerStmt.setString(6, province);
-                    playerStmt.setString(7, phoneNumber);
-                    playerStmt.executeUpdate();
-                }
+                PreparedStatement playerStmt = conn.prepareStatement(insertPlayerSQL);
+                playerStmt.setString(1, playerId);
+                playerStmt.setString(2, firstName);
+                playerStmt.setString(3, lastName);
+                playerStmt.setString(4, address);
+                playerStmt.setString(5, postalCode);
+                playerStmt.setString(6, province);
+                playerStmt.setString(7, phoneNumber);
+                playerStmt.executeUpdate();
 
-                // Insert game data
+
+                // Insert game data using prepared statement
                 String insertGameSQL = "INSERT INTO Kin_Chuen_Tse_game (game_id, game_title) VALUES (?, ?)";
-                try (PreparedStatement gameStmt = conn.prepareStatement(insertGameSQL)) {
-                    gameStmt.setString(1, gameId);
-                    gameStmt.setString(2, gameTitle);
-                    gameStmt.executeUpdate();
-                }
+                PreparedStatement gameStmt = conn.prepareStatement(insertGameSQL);
+                gameStmt.setString(1, gameId);
+                gameStmt.setString(2, gameTitle);
+                gameStmt.executeUpdate();
 
-                // Insert playergame data
+
+                // Insert playerandgame data using prepared statement
                 String insertPlayerGameSQL = "INSERT INTO Kin_Chuen_Tse_player_and_game (player_game_id, player_id, game_id, playing_date, score) VALUES (?, ?, ?, ?, ?)";
-                try (PreparedStatement playerGameStmt = conn.prepareStatement(insertPlayerGameSQL)) {
-                    playerGameStmt.setString(1, UUID.randomUUID().toString());
-                    playerGameStmt.setString(2, playerId);
-                    playerGameStmt.setString(3, gameId);
-                    playerGameStmt.setDate(4, java.sql.Date.valueOf(LocalDate.now()));
-                    playerGameStmt.setInt(5, score); // Default score
-                    playerGameStmt.executeUpdate();
-                }
+                PreparedStatement playerGameStmt = conn.prepareStatement(insertPlayerGameSQL);
+                playerGameStmt.setString(1, UUID.randomUUID().toString());
+                playerGameStmt.setString(2, playerId);
+                playerGameStmt.setString(3, gameId);
+                playerGameStmt.setDate(4, java.sql.Date.valueOf(LocalDate.now()));
+                playerGameStmt.setInt(5, score); // Default score
+                playerGameStmt.executeUpdate();
 
                 System.out.println("Player and game inserted successfully.");
-            } catch (SQLException e) { //This will show error message when there is error when inserting data to the tables
+            } catch (
+                    SQLException e) { //This will show error message when there is error when inserting data to the tables
                 System.err.println("Error inserting data: " + e.getMessage());
             }
         }
@@ -206,21 +206,21 @@ public class HelloController {
 
                 // Update player data
                 String updatePlayerSQL = "UPDATE Kin_Chuen_Tse_player SET first_name = ?, last_name = ?, address = ?, postal_code = ?, province = ?, phone_number = ? WHERE player_id = ?";
-                try (PreparedStatement playerStmt = conn.prepareStatement(updatePlayerSQL)) { //Exception handling to check if there is error when updating player information
-                    playerStmt.setString(1, firstName);
-                    playerStmt.setString(2, lastName);
-                    playerStmt.setString(3, address);
-                    playerStmt.setString(4, postalCode);
-                    playerStmt.setString(5, province);
-                    playerStmt.setString(6, phoneNumber);
-                    playerStmt.setString(7, playerId);
-                    int rowsAffected = playerStmt.executeUpdate();
-                    if (rowsAffected > 0) {
-                        System.out.println("Player updated successfully.");
-                    } else {
-                        System.out.println("No player found with ID: " + playerId);
-                    }
+                PreparedStatement playerStmt = conn.prepareStatement(updatePlayerSQL); //Prepared statement to update player information
+                playerStmt.setString(1, firstName);
+                playerStmt.setString(2, lastName);
+                playerStmt.setString(3, address);
+                playerStmt.setString(4, postalCode);
+                playerStmt.setString(5, province);
+                playerStmt.setString(6, phoneNumber);
+                playerStmt.setString(7, playerId);
+                int rowsAffected = playerStmt.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("Player updated successfully.");
+                } else {
+                    System.out.println("No player found with ID: " + playerId);
                 }
+
             } catch (SQLException e) { //Will show error message when there is error when updating player information
                 System.err.println("Error updating player: " + e.getMessage());
             }
